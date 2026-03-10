@@ -1,0 +1,907 @@
+@media (max-width: 1200px) {
+
+    html,
+    body {
+        max-width: 100%;
+        /* overflow-x: hidden;*/
+        display: flex;
+    }
+
+    .nav-list li {
+        display: none;
+    }
+
+    #openLiveBalance {
+        display: none;
+    }
+
+    .nav-logo {
+        display: none;
+    }
+
+    nav {
+        height: 8vw;
+        width: 97vw;
+        max-width: 97vw;
+        margin: 2vw 1vw;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        padding: 1vw;
+
+
+    }
+
+    .navbox-mobile {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        
+    }
+
+    #openLiveBalanceMobile {
+        font-size: 2vw;
+        text-align: center;
+        display: block;
+        flex: 1;
+        max-width: 50vw;
+        margin-left: 5vw;
+    }
+
+    .navbar-mobile-logo {
+        flex: 5;
+        display: flex;
+        justify-content: center;
+        /* Centraliza o logo dentro de seu container */
+        align-items: center;
+
+    }
+
+    .navbar-mobile-logo img {
+        display: block;
+        height: 8vw;
+        max-width: 100%;    
+    }
+
+    .hamburger {
+        flex: 1;
+        /* O menu hambúrguer vai ocupar a terceira parte da navbar */
+        display: flex;
+        justify-content: flex-end;
+        border: none;
+        background: transparent;
+    }
+
+    .hamburger-menu-content {
+        display: none;
+    }
+
+    .hamburger-menu-content a {
+        display: block;
+        margin-bottom: 1vw;
+        color: #ffffff;
+        /* Ajuste a cor do texto conforme necessário */
+        text-decoration: none;
+        font-size: 5vw;
+        /* Ajusta o tamanho da fonte conforme necessário */
+    }
+
+    .hamburger img {
+        padding-right: 0.4vw;
+        height: 3vw;
+    }
+
+    .hamburger-menu-content.active {
+        display: flex;
+        position:absolute;
+        top: 8vw;
+        right: 2vw;
+        background-color: #000000;
+        border-radius: 2vw;
+        border: 0.5vw solid white;
+        padding: 1vw 2vw;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 1.5vw;
+    }
+
+    #live-balance-panel {
+        position: absolute;
+        justify-content: start;
+        top: 9vw;
+        left: 0;
+        width: 90%;
+        background-color: black;
+        color: white;
+        border: white solid 0.5vw;
+        border-radius: 4vw;
+        padding-top: 0.1vw;
+        padding: 1vw 1vw;
+        font-size: 4vw;
+    }
+
+
+    .balance-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: -2vw;
+
+    }
+
+    .wallet-name {
+        text-align: left;
+        margin-bottom: -3vw;
+        white-space: nowrap;
+    }
+
+
+    .balance-amount {
+        white-space: nowrap;
+        text-align: right; 
+        position: relative;
+        padding: 0;
+    }
+
+    .box {
+        width: 98% !important;
+        margin: 0;
+        height: auto;
+        position: static;
+        /*border: 5px solid orange;*/
+        font-size: 4vw;
+        left: 0;
+        /*border: 5px solid rgb(0, 174, 255);*/
+
+    }
+
+
+    main {
+        display: flex;
+        /* Ativa o Flexbox no <main> */
+        flex-direction: column;
+        /* Alinha os elementos em coluna */
+        justify-content: center;
+        /* Centraliza o conteúdo verticalmente */
+        align-items: center;
+        /* Centraliza o conteúdo horizontalmente */
+        /* Garante que o main sempre ocupe a altura total da viewport */
+
+    }
+
+    /* SNIPERDAO HOME - MOBILE */
+    /* SNIPERDAO HOME - MOBILE */
+    /* SNIPERDAO HOME - MOBILE */
+    .home {
+        display: none;
+    }
+
+    .mobile-home {
+        position: relative;
+        display: flex;
+        top: 2vw;
+        flex-direction: row;
+        /* Logo e texto lado a lado */
+        justify-content: flex-start;
+        /* Alinha ao início do container */
+        align-items: center;
+        /* Centraliza verticalmente */
+        height: auto;
+        padding-top: 1rem;
+        width: 95%;
+        max-width: 95%;
+        font-size: 2vw;
+
+    }
+
+
+    .sd-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sd-logo img {
+        width: 40vw;
+        height: auto;
+    }
+
+    .mobile-logo-text {
+        text-align: center;
+        padding-left: 0;
+        font-size: 4vw;
+        width: 60%;
+        word-wrap: break-word;
+        /* Garante que o texto não ultrapasse o container */
+        animation: pulse 4s infinite ease-in-out;
+        /* Aplica a animação de pulsação */
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            /* Tamanho normal */
+        }
+
+        50% {
+            transform: scale(1.08);
+            /* Aumenta o tamanho em 10% */
+        }
+
+        100% {
+            transform: scale(1);
+            /* Volta ao tamanho original */
+        }
+    }
+
+    .line.h.h11 {
+        display: none;
+        position: relative;
+        width: 70vw;
+        height: 0.5vw;
+        left: 0;
+        top: 50vw;
+        bottom: 0vw;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .main-stars,
+    .main-brain {
+        display: none;
+    }
+
+    .mobile-home-text {
+        position: relative;
+        display: block;
+        font-size: 5vw;
+        max-width: 93vw;
+        height: auto;
+    }
+
+    .main-text-text {
+        position: static;
+        display: block;
+
+    }
+
+    .wearedao {
+        font-size: 3vw;
+    }
+
+    .ca {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .copy-btn {
+        padding-top: 2vw;
+        background-color: transparent;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        transform: scale(1);
+    }
+
+    .home-mobile-contract {
+
+        text-decoration: underline;
+        display: block;
+        font-size: 3.1vw;
+        margin: 0;
+        text-align: end;
+        width: auto;
+        height: auto;
+        word-break: break-all
+    }
+
+    .home-mobile-contract:active {
+        font-size: 1.3vh;
+        padding: 0;
+        left: 0;
+    }
+
+    /* Estilo do "toast-home" */
+    .toast-home {
+        visibility: hidden;
+        min-width: 35vw;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 2vw;
+        position: static;
+        margin: 2vw 50vw;
+        z-index: 10;
+        font-size: 4vw;
+    }
+
+    .toast-home.show {
+        visibility: visible;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        /* Aparece e desaparece suavemente */
+    }
+
+    /*sessão about*/
+    /*sessão about*/
+    /*sessão about*/
+
+    .about {
+        position: static;
+        margin-top: 0;
+        width: 100vw;
+        height: auto;
+        
+    }
+
+    .about-header {
+        display: flex;
+        justify-content: space-between;
+        /* Espaço entre o título e o sonar */
+        align-items: center;
+        /* Centraliza os itens verticalmente */
+        width: 90%;
+        margin: 0;
+        margin-left: 7.5vw;
+        margin-right: 7.5vw;
+        padding: 0;
+        position: static;
+    }
+
+    .about .title {
+        padding: 0;
+        font-size: 5vw;
+        width: auto;
+    }
+
+    .sonar-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        /* altura da tela inteira */
+        background-color: #000;
+        /* fundo para dar contraste */
+    }
+
+    .sonar {
+        width: 4vw;
+        height: 4vw;
+        margin-right: 10vw;
+        border-radius: 50%;
+        background-color: rgba(247, 251, 247, 0.7);
+        position: relative;
+        animation: sonar-pulse 2s infinite;
+        box-shadow: 0 0 15px rgba(74, 76, 74, 0.7);
+    }
+
+    @keyframes sonar-pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(3);
+            opacity: 0;
+        }
+    }
+
+    .about-text-text {
+        /*border: 2px solid green;*/
+        position: static;
+        width: 85%;
+        margin: 0 7.5vw 0 7.5vw;
+        padding: 0;
+        height: auto;
+        font-size: 5vw;
+
+    }
+
+    .img01t {
+        /*IMAGEM DE "MIRA" BLOCKCHAIN DA SESSÃO ABOUT, SESSAO WHATWHATHOW */
+        display: none;
+    }
+
+    .connection-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        height: 100px;
+        position: static;
+        margin-top: 25vw;
+        margin-left: 12%;
+
+    }
+
+    .node {
+        width: 3vw;
+        height: 3vw;
+        background-color: white;
+        border-radius: 50%;
+    }
+
+    .left-node,
+    .right-node {
+        background-color: white;
+        /* Cor dos nós */
+    }
+
+    .wire {
+        flex-grow: 1;
+        height: 0.5vw;
+        background-color: white;
+        /* Linha conectando os nós */
+        position: relative;
+        margin: 0 1vw;
+        /* Ajusta o espaço entre os nós e a linha */
+    }
+
+    .wire-pulse {
+        width: 1.5vw;
+        height: 1.5vw;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: -3px;
+        /* Posiciona o ponto de sinal na linha */
+        animation: pulse-animation 2s infinite;
+    }
+
+    @keyframes pulse-animation {
+        0% {
+            left: 0;
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.5);
+        }
+
+        100% {
+            left: 100%;
+            transform: scale(1);
+        }
+    }
+
+    .about .titles {
+        padding: 0;
+        font-size: 4.5vw;
+        width: auto;
+        color: white;
+
+    }
+
+    .box-text {
+        display: flex;
+        justify-content: space-between;
+        position: static;
+        top: 0;
+        margin-left: 7.5%;
+        font-size: 4vw;
+        text-align: justify;
+        color: #ccc;
+        display: block;
+        height: auto;
+        width: 85%;
+    }
+
+    /*sessão mechanics*/
+    .mechanics {
+        display: none;
+    }
+
+    /* Sessão mechanics mobile */
+    .mobile-mechanics {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        /* Espaço entre o texto e as imagens */
+        align-items: flex-start;
+        /* Alinha os itens ao topo */
+        flex-wrap: nowrap;
+        position: relative;
+    }
+
+    .mobile-mechanics-text {
+        color: hsl(0, 0%, 100%);
+        font-size: 3.5vw;
+        margin-top: 15vw;
+        margin-left: 7vw;
+        margin-right: 7vw;
+        width: 90vw;
+        /* Espaço entre o texto e as imagens */
+    }
+
+    .mobile-mechanics-title {
+        font-size: 5vw;
+    }
+
+    .mobile-mechanics-img {
+        display: none;
+    }
+
+
+    /* tokenomics section*/
+    /* tokenomics section*/
+    /* tokenomics section*/
+
+    .tokenomics {
+        display: none;
+    }
+
+    .tokenomics-mobile {
+        display: block;
+        position: relative;
+        margin: 0;
+        margin-top: 18vw;
+        width: 100vw;
+        height: auto;
+        /*background-color: rgba(151, 242, 14, 0.89)*/
+    }
+
+    .mobile-tokenomics-title {
+        font-size: 5vw;
+    }
+
+    .mobile-tokenomics-text {
+        font-size: 3vw;
+        align-items: left;
+        margin-left: 5vw;
+
+    }
+
+    .mobile-tokenomics-text .ca {
+        font-size: 3.5vw;
+        margin-right: 8vw;
+
+    }
+
+    .contract {
+        margin-top: 0;
+        margin-left: 3vw;
+        font-size: 3vw;
+        justify-items: right;
+        text-decoration: underline;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .contract:hover .hover-toast {
+        display: none;
+    }
+
+
+    .copy-btn-tokenomics-mobile {
+        padding: 2vw 1.5vw 0 0;
+        background-color: transparent;
+        color: white;
+        border: none;
+
+    }
+
+    .copy-btn:active {
+        background-color: #0056b3;
+    }
+
+    /* Estilo do "toast" */
+    .toast-tokenomics-mobile {
+        visibility: hidden;
+        min-width: 35vw;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 2vw;
+        position: relative;
+        margin-top: -10v;
+        margin: 0 30vw;
+        z-index: 9999;
+        font-size: 4vw;
+    }
+
+    .toast-tokenomics-mobile.show {
+        visibility: visible;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        /* Aparece e desaparece suavemente */
+    }
+
+    @keyframes fadein {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 4vw;
+            opacity: 1;
+        }
+    }
+    .chart-container-mobile {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: left;
+        position: relative;
+        width: 90vw;
+        padding: 0;
+        margin-left: 5vw;
+        margin-top: -15vw;
+        z-index: 1;
+    }
+    
+    .chart-info {
+        flex: 1;
+        width: 40vw;
+        margin-left: 7vw;
+    }
+    
+    .chart-info h3 {
+        color: white;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 4.5vw; 
+        width: 45vw; 
+    }
+    
+    .chart-info p {
+        color: white;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3.5vw; 
+
+    }
+    
+    .chart-info ul {
+        list-style: none;
+        padding: 0;
+        color: white;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3vw;
+
+    }
+    
+    .chart-info ul li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2vw; 
+
+    }
+    
+    .liquidity-box, .team-box {
+        width: 3vw; 
+        height: 3vw;
+        display: inline-block;
+        margin-right: 1vw; 
+
+    }
+    
+    .liquidity-box {
+        background-color: black;
+        border: 0.2vw solid white; 
+    }
+    
+    .team-box {
+        background-color: white;
+    }
+    
+    .chart-pizza-mobile {
+        flex: 1;
+        display: block;
+        justify-content: left;
+        align-items: center;
+        margin-top: 5vw;
+
+    }
+    
+
+    .my-chart-mobile {
+        position: relative;
+        margin: 0;
+        display: block;
+        background-color: transparent;
+        width: 35vw;
+        height: 35vw;
+        z-index: 1;
+    }
+
+
+    /*Whitepapersectionn*/
+        /*Whitepapersectionn*/
+    /*Whitepapersectionn*/
+
+
+    .whitepaper-section {
+        position: static;
+        margin-top: 20vw;
+        left: 0;
+        width: 100vw;
+        height: auto;
+        font-size: 3vw;
+    }
+
+    .box-wp {
+        position: relative;
+        left: 7.5vw;
+        width: 85vw;
+        height: auto;
+    }
+
+    .whitepaper-title {
+        font-size: 5vw;
+        letter-spacing: 1vw;
+    }
+
+    .warning-download-container {
+        position: static;
+        font-size: 3vw;
+    }
+    .download-box {
+        display: none;
+    }        
+    .download-box-mobile {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        padding-left: 2vw;
+    }
+
+    .hamburger-downloadwp-mobile {
+        display: none; 
+        position: absolute; 
+        width: 25vw; 
+        top: 25vw;
+        margin-right: 5vw;
+        left: 65vw;
+        z-index: 10;
+        border: 0.5vw solid white;
+        background-color: #000000; 
+        border-radius: 4vw; 
+        text-decoration: none;
+        text-align: left;
+        padding-left: 4vw;
+        padding-bottom: 4vw;
+    }
+
+    .hamburger-downloadwp-mobile a {
+        text-decoration: none; /* Remove o sublinhado dos links */
+        color: white; /* Ajusta a cor do texto dos links para branco (ou qualquer cor que desejar) */
+    }
+       
+    .hamburger-downloadwp-mobile.active {
+        display: block; /* Mostra o menu quando a classe 'active' está presente */
+    
+    
+    }
+    
+
+    .whitepaper-warning-text {
+        position: static;
+        width: 90vw;
+    }
+
+    .terms-container,
+    .terms-of-use {
+        position: relative;
+        letter-spacing: 0.1vw;
+        justify-content: center;
+        left: 3vw;
+        width: 70vw;
+
+    }
+
+    #fullWhitepaper {
+        display: none;
+    }
+
+    .full-whitepaper {
+        display: none;
+        position: static;
+        margin: 0;
+        height: auto;
+        width: 90vw;
+        display: block;
+    }
+
+    .full-whitepaper h3 {
+        font-size: 5vw;
+    }
+
+    .full-whitepaper h2 {
+        font-size: 4.5vw;
+        text-align: center;
+    }
+
+    .full-whitepaper p {
+        text-align: left;
+        font-size: 4vw;
+    }
+
+/*roadmapsection*/
+/*roadmapsection*/
+/*roadmapsection*/
+
+    .roadmap-section {
+        position: static;
+        left: 0;
+        height: auto;
+        width: 100vw;
+        margin-top: 0
+    }
+
+    .roadmap-page {
+        position: relative;
+        left: 0;
+        font-size: 4vw;
+    }
+
+    .roadmap-title {
+        letter-spacing: 1.5vw;
+    }
+
+    .roadmap-phase {
+        width: 90vw;
+
+    }
+
+    .roadmap-box {
+        position: relative;
+        width: 80vw;
+        left: 0;
+
+    }
+
+    .mobile-phase {
+        position: relative;
+        display: block;
+        font-size: inherit;
+        margin-bottom: 2vw;
+    }
+
+    .roadmap-phase h2 {
+        position: relative;
+        width: 80vw;
+        font-size: 5vw;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+    }
+
+    .roadmap-box h3 {
+        text-align: center;
+    }
+
+    .contact {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .contact-box {
+        width: 80vw;
+        font-size: 3vw;
+        text-align: center;
+        margin: 0 auto;
+        padding: 2vw;
+        background-color: #1a1a1a;
+        border-radius: 2vw;
+    }
+
+    .contact-box h2 {
+        font-size: 5vw;
+        margin-bottom: 3vw;
+    }
+
+    .contact-box h3 {
+        font-size: 2.5vw;
+        margin-top: 6vw;
+    }
+}

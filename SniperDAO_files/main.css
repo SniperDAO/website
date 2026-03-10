@@ -1,0 +1,1108 @@
+/* General setigns*/
+/* General setigns*/
+html,
+body,
+ul {
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    max-width: 100%;
+    overflow: auto;
+
+    -ms-overflow-style: none;
+    /* Para Internet Explorer e Edge */
+    scrollbar-width: none;
+    /* Para Firefox */
+}
+
+/* Fim de general setigns*/
+/*Cabeçalho// Navbar - Desktop */
+/*Cabeçalho// Navbar - Desktop */
+/*Cabeçalho// Navbar - Desktop */
+nav {
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 2em;
+    width: 92.5em;
+    border: 2px solid white;
+    border-radius: 80px;
+    margin: 1em 1em;
+    background-color: black;
+    padding: 0 0;
+    box-sizing: border-box;
+}
+
+/*efeito de piscar que vai ser usado em outros elementos da página*/
+.blink {
+    animation: blinking 1s infinite;
+}
+
+/*links das sessões na navbar*/
+.navbar a {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+    position: relative;
+    letter-spacing: 0.1em;
+    font-size: 1em;
+    /*border: 5px solid slateblue; UTILIZAçÂO PARA SITUAR AONDE ESTA O ELEMENTO QUE ESTA SENDO AJUSTADO*/
+}
+
+.navbar a:hover {
+    color: #bbb;
+}
+
+.navbox-mobile {
+    display: flex;
+}
+
+/*o conjunto dos elementos ou grupo de elementos que compõem a navbar*/
+.nav-list {
+    position: relative;
+    left: 2em;
+    list-style: none;
+    background-color: transparent;
+    display: flex;
+}
+
+/* os links das sessões, organizados como uma lista*/
+
+.nav-list li {
+    letter-spacing: 3em;
+    margin-left: 1.5em;
+}
+
+/*o container div que recebe a imagem da logo na esquerda da navbar, e os parametros para a imagem do logo em sí*/
+
+.nav-logo,
+.nav-logo img {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 120%;
+    right: 2.5em;
+}
+
+/*aqui vamos esconder a logo mobile, o menu hamburguer e seu conteudo, da visibilidade desktop*/
+
+.navbar-mobile-logo img,
+.hamburger,
+.hamburger-menu-content,
+.sd-logo {
+    display: none;
+}
+
+#openLiveBalanceMobile {
+    position: relative;
+    left: 0.2em;
+    display: none;
+}
+
+#openLiveBalance {
+    right: 10em;
+}
+
+/* Fim do cabeçallho // Navbar  - Desktop */
+
+/*começamos a definir aqui o conteudo do main, saimos do cabeçalho*/
+/*bloco main*/
+main {
+    position: relative;
+    height: auto;
+    width: 100vw;
+}
+
+.mobile-home,
+.mobile-home-text {
+    display: none;
+}
+
+/* SNIPERDAO main image - desktop */
+.main-logo {
+    position: relative;
+    bottom: 70px;
+    left: -28.5em;
+    transform: scale(0.375);
+    transition: transform 0.5s;
+}
+
+/* Estilos para o sub titulo */
+
+.logo-text {
+    position: absolute;
+    left: 17em;
+    top: 17.25em;
+    color: var(--accent-color);
+    font-size: 1em;
+    white-space: nowrap;
+    letter-spacing: 0.14em;
+}
+
+.logo-text span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.logo-text span:hover {
+    transform: translateY(-0.625em);
+}
+
+/* Estilo inicial do toast (oculto por padrão) */
+.toast-home {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    opacity: 0; /* Inicia oculto */
+    transition: opacity 0.3s ease-in-out; /* Transição suave */
+}
+
+/* Quando o toast estiver visível */
+.toast-home.show {
+    visibility: visible;
+    opacity: 1; /* Aparece */
+}
+
+
+/*define os box de texto comum a varias sessões */
+.box {
+    width: 33em;
+    height: auto;
+    position: absolute;
+    left: 9em;
+    /*border: 5px solid orange;*/
+    font-size: 1.4em;
+}
+
+/*começamos a definir o texto principal da sessão home*/
+.home {
+    position: static;
+    height: 43em;
+    /*border: 5px solid pink;*/
+}
+
+#main-text {
+    position: relative;
+    display: block;
+    bottom: 8.5em;
+    font-size: 1.4em;
+    width: 32.5em;
+    /*border: 5px solid green;*/
+
+}
+
+.wearedao-desktop {
+    font-size: 1em;
+}
+
+.home-desktop-contract {
+    /*display: none;*/
+    position: static;
+    margin-right: 1em;
+    margin-top: -1.5em;
+    text-align: right;
+    font-size: 0.8em;
+}
+
+.real-ca-desktop-home {
+    position: static;
+    margin-right: em;
+    margin-top: -1.5em;
+    text-align: right;
+    font-size: 0.75em;
+    cursor: pointer;
+    width: auto;
+    letter-spacing: 0.2em;
+}
+
+.real-ca-desktop-home:active {
+    font-size: 0.7em;
+}
+
+.ca {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    margin-top: 0;
+
+}
+
+.copy-btn-desktop {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+.copy-btn-desktop:active {
+    background-color: #0056b3;
+    transform: scale(1.5);
+}
+
+/* Aplica o hover no contêiner .ca, afetando o botão e o contrato */
+.ca:hover .hover-toast,
+.copy-btn-desktop:hover~.hover-toast,
+.real-ca-desktop-home:hover~.hover-toast {
+    visibility: visible;
+    opacity: 1;
+}
+
+#contract-address-desktop-home {
+    display: block;
+    justify-content: right;
+    text-align: end;
+    margin-top: 0.1em;
+}
+
+.main-text-text {
+    padding: 0em 0.5em;
+    word-wrap: break-word;
+    overflow: hidden;
+    letter-spacing: 0.125em;
+    text-align: justify;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.main-text-text .prompt,
+.main-text-text .blink {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.main-text-text .blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+.main-stars {
+    position: absolute;
+    top: -22.3em;
+    left: 35.9em;
+    transform: scale(0.2);
+    transition: transform 0.5s;
+}
+
+@keyframes rotate {
+    from {
+        transform: scale(0.2) rotate(0deg);
+    }
+
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+
+
+.main-stars:hover {
+    transition: transform 0.3s;
+    animation: rotate 25s linear infinite;
+}
+
+.main-brain {
+    position: absolute;
+    top: 16.5em;
+    left: 67.5em;
+    width: 12.5em;
+    height: 12.5em;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 50%;
+
+    overflow: hidden;
+    padding: 0.94em;
+    transition: transform 0.5s;
+    transform: scale(1.5);
+}
+
+.main-brain:hover {
+    transform: scale(0.9);
+    transition: transform 0.5s;
+}
+
+.about {
+    position: static;
+    height: 64.5em;
+    /*border: 5px solid yellowgreen;*/
+    display: block;
+
+}
+
+.title {
+    font-size: 1.8em;
+    color: white;
+}
+
+#about-text {
+    position: relative;
+    display: block;
+    top: 6em;
+    width: 48em;
+    /*border: 5px solid green;*/
+
+}
+
+.about-text-text {
+    padding: 0em 0em;
+    margin-top: -1.27em;
+    letter-spacing: 0.125em;
+    text-align: justify;
+    display: inline-block;
+    font-size: 0.79em;
+    color: #bbb;
+    letter-spacing: 0.06em;
+    font-size: 0.9em;
+
+}
+
+.connection-container {
+    display: none;
+}
+
+/*div dos boxes com o what how and where*/
+.boxes-about {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 5em;
+    left: 22.6em;
+    letter-spacing: 0.1em;
+    text-align: justify;
+    color: #ccc;
+    display: block;
+}
+
+.box-text .titles {
+    font-size: 1.5em;
+    color: white;
+    /*border: 2px solid wheat;*/
+}
+
+.box-text {
+    font-size: 0.785em;
+}
+
+.img01t {
+    position: absolute;
+    top: -24.9em;
+    left: -37.719em;
+    background-color: transparent;
+    transform: scale(0.23);
+    filter: brightness(0) invert(1) contrast(100);
+
+}
+
+.boxab1txt {
+    position: relative;
+}
+
+
+/*sessão mechanics*/
+.mobile-mechanics {
+    display: none;
+}
+
+.mechanics {
+    position: static;
+    width: auto;
+    height: 38.5em;
+    margin-left: 6.3em;
+    margin-top: 2em;
+    text-align: left;
+    font-size: 1.2em;
+    letter-spacing: 0.2em;
+    /*border: 3px solid brown;*/
+}
+
+.mechanics .mechanics-title {
+    font-size: 1.8em;
+    text-align: right;
+}
+
+.mechanics .mechanics-text {
+    position: relative;
+    width: 50em;
+    left: 43em;
+    color: hsl(0, 0%, 100%);
+    /*border: 2px solid violet;*/
+    font-size: 0.7em;
+
+}
+
+.mechanics p {
+    color: #ccc;
+}
+
+.img02,
+.img03,
+.img04 {
+    background-color: transparent;
+    position: absolute;
+    transform: scale(0.22);
+    z-index: 2;
+}
+
+.img02 {
+    left: -86.6em;
+    top: -25.5em;
+}
+
+.img03 {
+    left: -78em;
+    top: -38em;
+}
+
+.img04 {
+    left: -91.5em;
+    top: -30.5em;
+}
+
+@keyframes rotate-clockwise {
+    from {
+        transform: scale(0.22) rotate(0deg);
+    }
+
+    to {
+        transform: scale(0.22) rotate(360deg);
+    }
+}
+
+@keyframes rotate-anticlockwise {
+    from {
+        transform: scale(0.22) rotate(0deg);
+    }
+
+    to {
+        transform: scale(0.22) rotate(-360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.22);
+    }
+
+    50% {
+        transform: scale(0.26);
+    }
+
+    100% {
+        transform: scale(0.22);
+    }
+}
+
+.img02:hover,
+.img03:hover,
+.img04:hover {
+    animation: pulse 2s linear 1;
+}
+
+.img02.animated {
+    animation: rotate-clockwise 25s linear infinite;
+}
+
+.img03.animated,
+.img04.animated {
+    animation: rotate-anticlockwise 25s linear infinite;
+}
+
+/* Estilos para a sessão tokenomics */
+.tokenomics {
+    position: static;
+    width: auto;
+    height: 39em;
+    left: 11em;
+    text-align: justify;
+    letter-spacing: 0.2em;
+    /*border: 2px solid yellow;*/
+}
+
+.tokenomics-title {
+    font-size: 2em;
+    position: relative;
+    left: 0.35em;
+    top: 0.55em;
+    letter-spacing: 0.14em;
+}
+
+.tokenomics-text {
+    position: relative;
+    top: 1.5em;
+    font-size: 0.75em;
+}
+
+.contract-tokenomics-desktop {
+    display: flex;
+    margin-top: 0.4vh;
+    width: 39em;
+    justify-content: space-between;
+    font-size: 2.5vh;
+
+}
+
+.copy-btn-desktop {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin-top: 1em;
+    cursor: pointer;
+    transform: scale(1.1)
+}
+
+.copy-btn-desktop:active {
+    background-color: #0056b3;
+    transform: scale(1.5);
+}
+
+.copy-btn-desktop:hover {
+    transform: scale(1.4);
+}
+
+.copy-btn-desktop:hover+.hover-toast {
+    visibility: visible;
+    opacity: 1;
+}
+
+.contract {
+    text-align: left;
+    margin-top: -0.5em;
+    cursor: pointer;
+    text-decoration: underline;
+    position: relative;
+}
+
+.contract:hover {
+    color: #ccc;
+}
+
+.contract:active {
+    font-size: 0.8em;
+}
+
+/* Estilo do "toast" de hover */
+.hover-toast {
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    /* Aparece abaixo do texto */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.contract:hover+.hover-toast {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Estilo do "toast" */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    height: auto;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 17px;
+}
+
+.toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    /* Aparece e desaparece suavemente */
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+.chart-container-mobile {
+    display: none;
+}
+@media (min-width: 1250px) {
+    .chart-info {display: none;}
+
+    .my-chart-desktop {
+        width: 25em;
+        height: 25em;
+        display: block;
+        background-color: transparent;
+    }
+
+    .chart-container-desktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        width: 30em;
+        left: 59em;
+        top: 5em;
+
+
+    }
+
+    .chart-pizza-desktop {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: scale(1);
+        margin: 0 auto;
+
+    }
+
+    .chart-info {
+        flex: 1;
+        padding: 0 5em;
+        margin: 0;
+    }
+
+    .chart-info h3,
+    .chart-info p,
+    .chart-info ul {
+        color: white;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2em;
+    }
+
+    .liquidity-box,
+    .team-box {
+        width: 2em;
+        height: auto;
+        display: inline-block;
+        margin-right: 1em;
+    }
+
+    .liquidity-box {
+        background-color: black;
+        border: 0.2em solid white;
+    }
+
+    .team-box {
+        background-color: white;
+    }
+
+
+    .tokenomics-mobile {
+        display: none;
+    }
+}
+
+/*sessão whitepaper*/
+.download-box-mobile {
+    display: none;
+}
+
+.whitepaper-section {
+    position: static;
+    height: 43em;
+    /*border: 2px solid aliceblue;*/
+
+}
+
+.whitepaper-title {
+    font-size: 1.8em;
+}
+
+.warning-download-container {
+    display: flex;
+    position: relative;
+    left: 0.15em;
+    top: -0.8em;
+    justify-content: space-between;
+    /* Espaço entre os itens */
+    width: auto;
+    align-items: center;
+    /* Alinha os itens verticalmente no centro */
+    letter-spacing: 0.2em;
+}
+
+#downloadwp {
+    cursor: pointer;
+    position: relative;
+    margin-left: auto;
+}
+
+.downloadwp:hover {
+    color: #bbb;
+}
+
+.hamburger-downloadwp {
+    display: none;
+    /* Inicialmente oculto */
+}
+
+.hamburger-downloadwp.active {
+    display: inline-flex;
+    position: absolute;
+    top: 195em;
+    left: 60em;
+    background-color: transparent;
+    /* Ajuste a cor de fundo conforme necessário */
+    border-radius: 1em;
+    border: 2px solid #ffffff;
+    padding-left: 1.5em;
+    margin-top: 1em;
+}
+
+.hamburger-downloadwp.active .column {
+    display: flex;
+    flex-direction: column;
+    /* Organiza os itens dentro da coluna verticalmente */
+    align-items: left;
+    /* Centraliza o conteúdo da coluna horizontalmente */
+    margin-bottom: 0.8em;
+
+}
+
+.hamburger-downloadwp.active h2 {
+    font-size: 1.3em;
+    /* Ajuste conforme necessário */
+    margin-bottom: 0.5em;
+    /* Espaço entre os links */
+
+}
+
+.hamburger-downloadwp a {
+    font-size: 1em;
+    display: grid;
+    text-decoration: none;
+    /* Remove o sublinhado */
+    color: white;
+    /* Ajuste a cor do texto conforme necessário */
+    margin-bottom: 0.4em;
+    /* Espaço entre os links */
+    margin-right: 1.5em;
+}
+
+.hamburger-downloadwp a:hover {
+    color: #bbb;
+    /* Ajuste a cor do hover conforme necessário */
+}
+
+.whitepaper-warning-text {
+    width: 59em;
+    position: relative;
+    top: -2em;
+    text-align: justify;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+}
+
+.term-of-use-link {
+    color: inherit;
+    /* Mantém a cor padrão do texto */
+}
+
+.term-of-use-link:hover {
+    color: #bbb;
+    /* Cor acinzentada no hover */
+}
+
+.terms-of-use {
+    position: relative;
+    display: inline-block;
+    left: 3.8em;
+    padding: 1em 1em;
+    height: auto;
+    width: 45em;
+    font-size: 0.8em;
+    letter-spacing: 0.15em;
+    align-content: center;
+    text-align: justify;
+    border: 2px solid #ffffff;
+    border-radius: 1em;
+    /* Cantos arredondados para a borda */
+
+}
+
+.box-wp {
+    width: 32em;
+    height: auto;
+    position: absolute;
+    left: 9em;
+    right: 9em;
+    /*border: 5px solid yellowgreen;*/
+    font-size: 1.4em;
+}
+
+.full-whitepaper {
+    display: none;
+    /*border: 3px solid seagreen;*/
+    position: relative;
+    left: 8em;
+    height: auto;
+    letter-spacing: 0.2em;
+    
+}
+
+
+
+.full-whitepaper h3 {
+    font-size: 2em;
+}
+
+.full-whitepaper h2 {
+    font-size: 1.5em;
+}
+
+.full-whitepaper p {
+    font-size: 1em;
+    color: #ccc;
+}
+
+.full-whitepaper ul {
+    font-size: 1em;
+    color: #f9f6f6;
+}
+
+#pcslink {
+    text-decoration: none;
+    color: white;
+}
+
+#pcslink:hover {
+    color: #333;
+}
+
+/*Estilos da sessão roadmap*/
+/*Estilos da sessão roadmap*/
+/*Estilos da sessão roadmap*/
+.roadmap-section {
+    position: static;
+    height: 269em;
+    /*border: 2px solid rgb(255, 215, 192);*/
+}
+
+.roadmap-box {
+    color: #ccc;
+}
+
+
+.roadmap-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 0.4em;
+
+}
+
+.roadmap-phase h2 {
+    font-size: 1.5em;
+    /*color: aqua;*/
+    width: 31em;
+    margin-top: 2em;
+    position: relative;
+    left: 0.5em;
+}
+
+.roadmap-phase h3 {
+    font-size: 1.2em;
+    text-align: left;
+    color: white;
+    width: auto;
+}
+
+.roadmap-box {
+    border: 2px solid white;
+    border-radius: 1em;
+    padding: 0 1em;
+    margin: 1em 0;
+    position: relative;
+    left: 7.5em;
+}
+
+/* Estilos da Sessão de Contato */
+/* Estilos da Sessão de Contato */
+/* Estilos da Sessão de Contato */
+
+.contact {
+    position: static;
+    letter-spacing: 0.1em;
+}
+
+.contact-box {
+    background-color: #1a1a1a;
+    margin-left: 8em;
+    padding: 2em;
+    width: 45em;
+    height: auto;
+    position: static;
+    /*border: 5px solid yellowgreen;*/
+    font-size: 1.4em;
+}
+
+.contact-box h2 {
+    font-size: 1.8em;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+.contact-box p {
+    text-align: left;
+}
+
+.contact-box a {
+    color: #fff7f7;
+    text-decoration: none;
+}
+
+.contact-box a:hover {
+    color: #9e9e9e;
+}
+
+.contact-box h3 {
+    font-size: 0.7em;
+    margin-top: 4em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+/*LIVE BALANCE*/
+/*LIVE BALANCE*/
+/*LIVE BALANCE*/
+
+/* Estilização dos botões */
+.toggle-button {
+    display: inline-block;
+    margin: 0 0.5em;
+    margin-bottom: 1.5em;
+    padding: 0.5em 1.5em;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.toggle-button:hover {
+    background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+.toggle-button.selected {
+    background-color: white;
+    color: black;
+}
+
+/* Estilização do painel de saldo ao vivo */
+#live-balance-panel {
+    position: absolute;
+    top: 2em;
+    left: 8em;
+    width: 30em;
+    background-color: hsla(0, 0%, 0%, 0.90);
+    color: white;
+    text-align: center;
+    border: white solid 2px;
+    border-radius: 20px;
+    padding-top: 0.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    display: none;
+    z-index: 1000;
+}
+
+#balanceDisplay a {
+    color: hsl(0, 20%, 90%);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+}
+
+#balanceDisplay a:hover {
+    text-decoration: underline;
+}
+
+/* Estilização das linhas de saldo para desktop */
+.balance-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.balance-amount {
+    text-align: right;
+    font-weight: bold;
+}
+
+.total-balance {
+    border-top: 2px solid white; /* Opcional: Adicionar uma borda para destacar o saldo total */
+    margin-bottom: 1em;
+    padding-top: 0.5em;
+    color: hsl(0, 20%, 90%);
+    letter-spacing: 0.5em;
+
+}
+
+.total-balance .balance-amount {
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.1em;
+
+}
+

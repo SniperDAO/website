@@ -1,0 +1,278 @@
+/* blockchain.css */
+
+/* Estilo comum para todas as linhas */
+.line {
+    background-color: white;
+    position: absolute;
+}
+@media (max-width: 1200px) {
+    .line {
+        display: none;
+    }
+}
+
+/* Define a animação de piscar */
+@keyframes blinking {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.line:hover {
+    animation: blinking 0.01s infinite;
+}
+
+/* Estilos para linhas verticais */
+.line.v.v1 {
+    width: 1.5px;
+    height: 80px;
+    left: 155px;
+    top: 145px;
+}
+
+.line.v.v2 {
+    width: 1.5px;
+    height: 50px;
+    left: 216px;
+    top: 30px;
+}
+
+.line.v.v3 {
+    width: 1.5px;
+    height: 50px;
+    left: 96px;
+    top: 30px;
+}
+
+.line.v.v4 {
+    width: 1.5px;
+    height: 520px;
+    left: 945px;
+    top: 280px;
+}
+
+.line.v.v5 {
+    width: 1.5px;
+    height: 492px;
+    left: 155px;
+    top: 856px;
+}
+
+.line.v.v6 {
+    width: 1.5px;
+    height: 100px;
+    left: 343.5px;
+    top: 1411px;
+}
+
+.line.v.v7 {
+    width: 1.5px;
+    height: 260px;
+    left: 1295px;
+    top: 1515px;
+}
+
+.line.v.v8 {
+    width: 1.5px;
+    height: 799px;
+    left: 605.5px;
+    top: 1775px;
+}
+
+.line.v.v10 {
+    width: 1.5px;
+    height: 1115px;
+    left: 150.5px;
+    top: 2580px;
+}
+
+/* Estilos para linhas inclinadas */
+.line.i.i1 {
+    width: 1.5px;
+    height: 80px;
+    left: 216px;
+    top: 285px;
+    transform: rotate(135deg);
+    transform-origin: top left;
+}
+
+.line.i.i2 {
+    width: 1.5px;
+    height: 80px;
+    left: 185px;
+    top: 75px;
+    transform: rotate(45deg);
+}
+
+.line.i.i3 {
+    width: 1.5px;
+    height: 80px;
+    left: 155px;
+    top: 856px;
+    transform: rotate(225deg);
+    transform-origin: top left;
+}
+
+.line.i.i4 {
+    width: 1.5px;
+    height: 80px;
+    left: 125px;
+    top: 75px;
+    transform: rotate(135deg);
+}
+
+.line.i.i5 {
+    width: 1.5px;
+    height: 190px;
+    left: 1015px;
+    top: 128px;
+    transform: rotate(47.5deg);
+}
+
+.line.i.i6 {
+    width: 1.5px;
+    height: 271.5px;
+    left: 1074px;
+    top: 201.5px;
+    transform: rotate(291deg);
+    z-index: 5;
+}
+
+/* Estilos para linhas horizontais */
+.line.h.h1 {
+    width: 170px;
+    height: 1.5px;
+    left: 775px;
+    top: 285px;
+}
+
+.line.h.h2 {
+    width: 740px;
+    height: 1.5px;
+    left: 210px;
+    top: 795.5px;
+}
+
+.line.h.h3 {
+    width: 55px;
+    height: 1.5px;
+    left: 945px;
+    top: 649px;
+}
+
+.line.h.h4 {
+    width: 54px;
+    height: 1.5px;
+    left: 220px;
+    top: 285px;
+}
+
+.line.h.h5 {
+    width: 150px;
+    height: 1.7px;
+    left: 155px;
+    top: 1341.3px;
+    z-index: 5;
+}
+
+.wc6 { left: 150px; top: 1336.35px; }
+
+.line.h.h6 {
+    width: 154px;
+    height: 1.5px;
+    left: 350px;
+    top: 1510px;
+}
+
+.line.h.h7 {
+    width: 395px;
+    height: 1.5px;
+    left: 900px;
+    top: 1510px;
+}
+
+.line.h.h8 {
+    width: 325px;
+    height: 1.5px;
+    left: 975px;
+    top: 1775px;
+}
+
+.line.h.h9 {
+    width: 100px;
+    height: 1.5px;
+    left: 600px;
+    top: 1775px;
+}
+
+.line.h.h10 {
+    width: 100px;
+    height: 1.5px;
+    left: 511px;
+    top: 2576px;
+}
+
+.line.h.h10-1 {
+    width: 65px;
+    height: 1.5px;
+    left: 150px;
+    top: 2576px;
+}
+
+.line.h.h11 {
+    width: 58px;
+    height: 1.5px;
+    left: 150px;
+    top: 3249px;
+}
+
+.line.h.h12 {
+    width: 120px;
+    height: 1.5px;
+    left: 150px;
+    top: 3692px;
+}
+
+/* Estilo comum para todos os círculos brancos */
+.white-circle {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 5;
+}
+@media (max-width: 1200px) {
+    .white-circle {
+        display: none;
+    }
+}
+
+.white-circle:hover {
+    transform: scale(1.5);
+    transition: transform 0.3s;
+}
+
+/* Estilos específicos para cada círculo */
+.wc1 { left: 151px; top: 220px; }
+.wc2 { left: 210.5px; top: 77px; }
+.wc3 { left: 91px; top: 77px; }
+.wc4 { left: 151px; top: 139px; }
+.wc5 { left: 210px; top: 280px; }
+.wc7 { left: 940px; top: 280px; }
+.wc8 { left: 150px; top: 850px; }
+.wc9 { left: 940px; top: 644px; }
+.wc10 { left: 940px; top: 790px; }
+.wc11 { left: 1190px; top: 376px; }
+.wc12 { left: 1082px; top: 150px; }
+.wc13 { left: 210px; top: 790px; }
+.wc14 { left: 1290px; top: 1770px; }
+.wc15 { left: 1289.5px; top: 1505px; }
+.wc16 { left: 600px; top: 1770px; }
+.wc17 { left: 338.2px; top: 1505px; }
+.wc18 { left: 600.7px; top: 2570px; }
+.wc19 { left: 145px; top: 3244px; }
+.wc20 { left: 145px; top: 2570px; }
+.wc21 { left: 145px; top: 3687px; }
+
+

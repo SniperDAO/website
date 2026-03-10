@@ -1,0 +1,145 @@
+/*BOX 4 das sociais*/
+
+.social {
+    position: absolute;
+    width: 21.9em;
+    height: 3.5em;
+    left: 1000px;
+    top: 38.65em;
+    margin-bottom: 0.6em;
+    border: 0.19em solid white;
+    border-radius: 1.9em;
+    z-index: 5;
+}
+
+.social-links {
+    padding: 1.56em 0.94em 0.94em 0.94em;
+    overflow: hidden;
+    align-items: flex-start;
+}
+
+/* Estilos para a imagem da logo do Telegram no box 4 */
+.box4-tg {
+    position: absolute;
+    top: 50%;
+    left: 13%;
+    transform: translate(-50%, -50%) scale(0.02);
+    transition: transform 0.5s;
+    z-index: 4;
+}
+
+/* Estilos para a imagem do Twitter no box 4 */
+.box4-twitter {
+    position: absolute;
+    top: 51%;
+    left: 29%;
+    transform: translate(-50%, -50%) scale(0.18);
+    transition: transform 0.5s;
+    z-index: 1;
+}
+
+/* Estilos para a imagem no box 4 - pcs */
+.box4-pcs {
+    position: absolute;
+    top: 50%;
+    left: 42.5%;
+    transform: translate(-50%, -50%) scale(0.2);
+    transition: transform 0.5s;
+    z-index: 1;
+}
+
+/* Estilos para a imagem no box 4 - dxv dexview */
+.box4-dxv {
+    position: absolute;
+    top: 50%;
+    left: 56.5%;
+    transform: translate(-50%, -50%) scale(0.159);
+    transition: transform 0.5s;
+    z-index: 2;
+}
+
+.box4-dsc {
+    position: absolute;
+    top: 50%;
+    left: 72%;
+    transform: translate(-50%, -50%) scale(0.035);
+    transition: transform 0.5s;
+    z-index: 1;
+    border: 80px solid white;
+    border-radius: 50%;
+}
+
+/* Estilos para a imagem no box 4 - github */
+.box4-github {
+    position: absolute;
+    top: 50.5%;
+    left: 87%;
+    transform: translate(-50%, -50%) scale(0.29);
+    transition: transform 0.5s;
+    z-index: 2;
+}
+
+/*Hover dos icones*/
+@keyframes blinking {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.box4-tg:hover,
+.box4-twitter:hover,
+.box4-pcs:hover,
+.box4-dsc:hover,
+.box4-dxv:hover,
+.box4-github:hover {
+    opacity: 0.4;
+    /* Reduz a opacidade ao passar o mouse */
+    transition: opacity 0.3s;
+    /* Transição suave para o efeito de hover */
+}
+
+.mobile-socials-section {
+    display: none;
+}
+
+/*media queries para os sociais*/
+@media (max-width: 1200px) {
+    .social {
+        display: none;
+    }
+    .mobile-socials-section {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+        margin-top: -10vw;        
+    }
+    .mobile-socials-box {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 15vw;
+        border: 0.5vw solid white;
+        margin: 0 auto; 
+        border-radius: 20vw;
+    }
+    .mobile-socials-box img {
+        width: 10vw; /* Reduz o tamanho dos ícones para telas menores */
+        height: auto;
+        margin-right: 1vw;
+        margin-left: 1vw;
+
+    }
+}
