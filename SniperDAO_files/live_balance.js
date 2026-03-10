@@ -48,11 +48,11 @@ async function getPricesInUSD() {
 
 // Wallet addresses
 const walletAddresses = {
+    "sniperdao-operators-vault.bnb": "0x5bB4b1d171390A8f00151C776367a059a6343e17",
+    "sniperdao-emergency-fund.bnb": "0xe945AB431877c61A22Fd44FB657C2897599c31C8",
     "sniperdao-revenue-share.bnb": "0x7251B462B0AaD290E699F465f2F7Ef06e14FD381",
-    "sniperdao-operators-vault.bnb": "0x3E0D0999EbFBF2E23501d608955335F713716214",
-    "sniperdao-liquidity.bnb": "0xF74B177A8Bc0FF81aA36040556c36B48aF590634",
-    "sniperdao-ecosystem.bnb": "0xd9A9f5bFA0Cfd14D1Fd64a4a2c27161b790d33aF",
-    "sniperdao-emergency-fund.bnb": "0xE40E9f4c386CD537C4F04b8668E7174B14Ee027B",
+    "sniperdao-liquidity.bnb": "0x45e35d07e9329145fcBaBFbB4B6E2857BcBF0FB9",
+    "sniperdao-ecosystem.bnb": "0x61c91F7FD77a654663A710E5a37A5e7ac61EAF24",
     "sniperdao-deployer.bnb": "0x8EEdc1EbE170bdFa25Aeea55cAf0231651c57038"
 };
 
