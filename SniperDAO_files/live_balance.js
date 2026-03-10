@@ -1,17 +1,13 @@
-// Conecta ao provedor da Binance Smart Chain
-const bsc = "https://bsc-dataseed.binance.org/";
-const web3 = new Web3(new Web3.providers.HttpProvider(bsc));
+// Connects to the Binance Smart Chain provider
+const bscProvider = "https://bsc-dataseed.binance.org/";
+const web3 = new Web3(new Web3.providers.HttpProvider(bscProvider));
 
-// Endereço dos contratos Chainlink Price Feed BNB/USD e ETH/USD na BSC
-let bnbPriceFeedAddress = "0x0567F2323251f0AAB15c8DfB1967E4e8A7D42aeE"; // BNB/USD na BSC
-let ethPriceFeedAddress = "0x9ef1B8c0E4F7dc8bF5719Ea496883DC6401d5b2e"; // ETH/USD na BSC
+// Chainlink Price Feed contract addresses (BNB/USD and ETH/USD on BSC)
+const bnbPriceFeedAddress = web3.utils.toChecksumAddress("0x0567F2323251f0AAB15c8DfB1967E4e8A7D42aeE");
+const ethPriceFeedAddress = web3.utils.toChecksumAddress("0x9ef1B8c0E4F7dc8bF5719Ea496883DC6401d5b2e");
 
-// Converte os endereços para formato de checksum
-bnbPriceFeedAddress = web3.utils.toChecksumAddress(bnbPriceFeedAddress);
-ethPriceFeedAddress = web3.utils.toChecksumAddress(ethPriceFeedAddress);
-
-// ABI do Chainlink Price Feed (simplificada para o que precisamos)
-const priceFeedABI = [{
+// Chainlink Price Feed ABI (simplified)
+const PRICE_FEED_ABI = [{
     "inputs": [],
     "name": "latestRoundData",
     "outputs": [
@@ -25,18 +21,15 @@ const priceFeedABI = [{
     "type": "function"
 }];
 
-// Variável global para armazenar o tipo atualmente selecionado
-let selectedType = 'bnb';  // Define o valor padrão como 'bnb'
+// Currently selected display type
+let selectedType = 'bnb';
 
-// Função para obter o preço de BNB e ETH via Chainlink
+// Fetches BNB and ETH prices in USD via Chainlink
 async function getPricesInUSD() {
     try {
-        console.debug("Consultando preços de BNB/USD e ETH/USD via Chainlink...");
+        const bnbPriceFeed = new web3.eth.Contract(PRICE_FEED_ABI, bnbPriceFeedAddress);
+        const ethPriceFeed = new web3.eth.Contract(PRICE_FEED_ABI, ethPriceFeedAddress);
 
-        const bnbPriceFeed = new web3.eth.Contract(priceFeedABI, bnbPriceFeedAddress);
-        const ethPriceFeed = new web3.eth.Contract(priceFeedABI, ethPriceFeedAddress);
-
-        // Consultas simultâneas para os preços de BNB e ETH
         const [bnbRoundData, ethRoundData] = await Promise.all([
             bnbPriceFeed.methods.latestRoundData().call(),
             ethPriceFeed.methods.latestRoundData().call()
@@ -45,18 +38,16 @@ async function getPricesInUSD() {
         const bnbPriceInUSD = bnbRoundData.answer / 1e8;
         const ethPriceInUSD = ethRoundData.answer / 1e8;
 
-        console.debug(`Preço de BNB/USD: ${bnbPriceInUSD}, Preço de ETH/USD: ${ethPriceInUSD}`);
         return { bnb: bnbPriceInUSD, eth: ethPriceInUSD };
 
     } catch (error) {
-        console.error("Erro ao obter o preço de BNB ou ETH via Chainlink:", error);
-        return { bnb: 0, eth: 0 };  // Retorna 0 para evitar quebra
+        console.error("Error fetching BNB/ETH prices from Chainlink:", error);
+        return { bnb: 0, eth: 0 };
     }
 }
 
-
-// Endereços das carteiras
-const wallet_addresses = {
+// Wallet addresses
+const walletAddresses = {
     "sniperdao-revenue-share.bnb": "0x7251B462B0AaD290E699F465f2F7Ef06e14FD381",
     "sniperdao-operators-vault.bnb": "0x3E0D0999EbFBF2E23501d608955335F713716214",
     "sniperdao-liquidity.bnb": "0xF74B177A8Bc0FF81aA36040556c36B48aF590634",
@@ -65,9 +56,9 @@ const wallet_addresses = {
     "sniperdao-deployer.bnb": "0x8EEdc1EbE170bdFa25Aeea55cAf0231651c57038"
 };
 
-// Contrato ETH no BSC
-const ethContractAddress = "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"; // ETH na BSC
-const ethABI = [{
+// ETH token contract on BSC
+const ethContractAddress = "0x2170Ed0880ac9A755fd29B2688956BD959F933F8";
+const ETH_ABI = [{
     "constant": true,
     "inputs": [{ "name": "owner", "type": "address" }],
     "name": "balanceOf",
@@ -75,18 +66,15 @@ const ethABI = [{
     "type": "function"
 }];
 
-// Função para obter os saldos em BNB e ETH
+// Fetches BNB and ETH balances for all wallets
 async function getWalletBalances() {
-    let balances = {};
-    const ethContract = new web3.eth.Contract(ethABI, ethContractAddress);
+    const balances = {};
+    const ethContract = new web3.eth.Contract(ETH_ABI, ethContractAddress);
 
-    // Cria uma array de promessas para as consultas de saldo de BNB e ETH
-    const balancePromises = Object.keys(wallet_addresses).map(async (name) => {
-        let address = wallet_addresses[name];
-        console.debug(`Consultando saldo de BNB e ETH para o endereço: ${address}`);
+    const balancePromises = Object.keys(walletAddresses).map(async (name) => {
+        const address = walletAddresses[name];
 
         try {
-            // Consulta saldo em BNB e ETH simultaneamente
             const [balanceWei, balanceEthWei] = await Promise.all([
                 web3.eth.getBalance(address),
                 ethContract.methods.balanceOf(address).call()
@@ -94,26 +82,27 @@ async function getWalletBalances() {
 
             const balanceBNB = web3.utils.fromWei(balanceWei, 'ether');
             const balanceETH = web3.utils.fromWei(balanceEthWei, 'ether');
-            console.debug(`Saldo de BNB para ${name}: ${balanceBNB}`);
-            console.debug(`Saldo de ETH para ${name}: ${balanceETH}`);
 
-            balances[name] = { bnb: parseFloat(balanceBNB).toFixed(3), eth: parseFloat(balanceETH).toFixed(3) };
+            balances[name] = {
+                bnb: parseFloat(balanceBNB).toFixed(3),
+                eth: parseFloat(balanceETH).toFixed(3)
+            };
         } catch (error) {
-            console.error(`Erro ao consultar o saldo de ETH ou BNB para ${name}:`, error);
-            balances[name] = { bnb: "Erro", eth: "Erro" };
+            console.error(`Error fetching balance for ${name}:`, error);
+            balances[name] = { bnb: "Error", eth: "Error" };
         }
     });
 
-    // Aguarda todas as promessas serem resolvidas
     await Promise.all(balancePromises);
     return balances;
 }
 
-// Função para exibir os saldos em BNB, ETH ou USD
+// Renders wallet balances in the panel (BNB, ETH, or USD)
 async function displayWalletBalances(type = selectedType) {
-    let balances = await getWalletBalances();
-    let prices = await getPricesInUSD();  // Obtém os preços reais de BNB e ETH via Chainlink
-    let orderedWalletNames = [
+    const balances = await getWalletBalances();
+    const prices = await getPricesInUSD();
+
+    const orderedWalletNames = [
         "sniperdao-deployer.bnb",
         "sniperdao-operators-vault.bnb",
         "sniperdao-revenue-share.bnb",
@@ -121,41 +110,29 @@ async function displayWalletBalances(type = selectedType) {
         "sniperdao-liquidity.bnb",
         "sniperdao-emergency-fund.bnb"
     ];
+
     let balanceMessage = "";
     let totalBNB = 0;
     let totalETH = 0;
     let totalUSD = 0;
 
     orderedWalletNames.forEach(name => {
-        let { bnb, eth } = balances[name];
-        let walletAddress = wallet_addresses[name];
-        let walletLink = `https://bscscan.com/address/${walletAddress}`;
+        const { bnb, eth } = balances[name];
+        const walletAddress = walletAddresses[name];
+        const walletLink = `https://bscscan.com/address/${walletAddress}`;
 
-        // Acumula os saldos totais
-        if (!isNaN(parseFloat(bnb))) {
-            totalBNB += parseFloat(bnb);
-        }
-        if (!isNaN(parseFloat(eth))) {
-            totalETH += parseFloat(eth);
-        }
+        if (!isNaN(parseFloat(bnb))) totalBNB += parseFloat(bnb);
+        if (!isNaN(parseFloat(eth))) totalETH += parseFloat(eth);
 
         if (type === 'bnb') {
             balanceMessage += `<div class="balance-row">
-                <div class="wallet-name">
-                    <a href="${walletLink}" target="_blank">${name}:</a>
-                </div>
-                <div class="balance-amount">
-                    <p>${bnb} BNB</p>
-                </div>
+                <div class="wallet-name"><a href="${walletLink}" target="_blank">${name}:</a></div>
+                <div class="balance-amount"><p>${bnb} BNB</p></div>
             </div>`;
         } else if (type === 'eth') {
             balanceMessage += `<div class="balance-row">
-                <div class="wallet-name">
-                    <a href="${walletLink}" target="_blank">${name}:</a>
-                </div>
-                <div class="balance-amount">
-                    <p>${eth} ETH</p>
-                </div>
+                <div class="wallet-name"><a href="${walletLink}" target="_blank">${name}:</a></div>
+                <div class="balance-amount"><p>${eth} ETH</p></div>
             </div>`;
         } else if (type === 'usd') {
             let balanceInUSD = 0;
@@ -164,110 +141,84 @@ async function displayWalletBalances(type = selectedType) {
                 totalUSD += balanceInUSD;
             }
             balanceMessage += `<div class="balance-row">
-                <div class="wallet-name">
-                    <a href="${walletLink}" target="_blank">${name}:</a>
-                </div>
-                <div class="balance-amount">
-                    <p>$${balanceInUSD.toFixed(2)} USD</p>
-                </div>
+                <div class="wallet-name"><a href="${walletLink}" target="_blank">${name}:</a></div>
+                <div class="balance-amount"><p>$${balanceInUSD.toFixed(2)} USD</p></div>
             </div>`;
         }
     });
 
-    // Adiciona a linha de saldo total no final
+    // Total balance row
+    let totalValue = '';
+    if (type === 'bnb') totalValue = `${totalBNB.toFixed(3)} BNB`;
+    else if (type === 'eth') totalValue = `${totalETH.toFixed(3)} ETH`;
+    else if (type === 'usd') totalValue = `$${totalUSD.toFixed(2)} USD`;
+
     balanceMessage += `<div class="balance-row total-balance">
-    <div class="wallet-name">Total Balance:</div>
-    <div class="balance-amount">`;
-
-    if (type === 'bnb') {
-        balanceMessage += `${totalBNB.toFixed(3)} BNB`;
-    } else if (type === 'eth') {
-        balanceMessage += `${totalETH.toFixed(3)} ETH`;
-    } else if (type === 'usd') {
-        balanceMessage += `$${totalUSD.toFixed(2)} USD`;
-    }
-
-    balanceMessage += `</div></div>`;
-
+        <div class="wallet-name">Total Balance:</div>
+        <div class="balance-amount">${totalValue}</div>
+    </div>`;
 
     document.getElementById('balanceDisplay').innerHTML = balanceMessage;
 }
 
-
-// Alterna entre os tipos de visualização (BNB, ETH ou USD)
+// Handles BNB/ETH/USD toggle button click
 function handleButtonClick(type) {
-    selectedType = type;  // Atualiza o tipo selecionado globalmente
+    selectedType = type;
     displayWalletBalances(type);
 
-    // Remove a classe 'selected' de todos os botões
     document.querySelectorAll('.toggle-button').forEach(button => button.classList.remove('selected'));
 
-    // Adiciona a classe 'selected' ao botão correto com base no tipo
-    let buttonId;
-    if (type === 'bnb') {
-        buttonId = 'bnbBalanceButton';
-    } else if (type === 'eth') {
-        buttonId = 'ethBalanceButton';
-    } else if (type === 'usd') {
-        buttonId = 'usdTotalButton';
-    }
-
-    const selectedButton = document.getElementById(buttonId);
+    const buttonIds = { bnb: 'bnbBalanceButton', eth: 'ethBalanceButton', usd: 'usdTotalButton' };
+    const selectedButton = document.getElementById(buttonIds[type]);
     if (selectedButton) {
         selectedButton.classList.add('selected');
-        console.log(`Botão ${type} selecionado e classe 'selected' aplicada.`);
     } else {
-        console.error(`Botão ${type}BalanceButton não encontrado.`);
+        console.error(`Toggle button for type "${type}" not found.`);
     }
 }
 
-
-// Função para abrir/fechar o painel de saldo ao vivo
+// Toggles the live balance panel open/closed
 function toggleLiveBalanceDisplay() {
     const liveBalancePanel = document.getElementById('live-balance-panel');
     const panelStyle = window.getComputedStyle(liveBalancePanel);
 
     if (panelStyle.display === 'none') {
         liveBalancePanel.style.display = 'block';
-        displayWalletBalances(selectedType); // Exibe o saldo inicial com base no tipo selecionado
-        window.liveBalanceInterval = setInterval(() => displayWalletBalances(selectedType), 30000); // Atualiza a cada 30 segundos
+        displayWalletBalances(selectedType);
+        window.liveBalanceInterval = setInterval(() => displayWalletBalances(selectedType), 30000);
     } else {
         liveBalancePanel.style.display = 'none';
-        clearInterval(window.liveBalanceInterval); // Parar a atualização automática quando o painel é fechado
+        clearInterval(window.liveBalanceInterval);
     }
 }
 
-// Evento para garantir que o DOM seja carregado antes de qualquer manipulação
-document.addEventListener('DOMContentLoaded', function () {
+// Initialize event listeners after DOM loads
+document.addEventListener('DOMContentLoaded', function() {
     const liveBalanceLink = document.getElementById('openLiveBalance');
     const liveBalanceMobileLink = document.getElementById('openLiveBalanceMobile');
-
     const bnbButton = document.getElementById('bnbBalanceButton');
     const ethButton = document.getElementById('ethBalanceButton');
     const usdButton = document.getElementById('usdTotalButton');
 
-    // Adiciona eventos de clique para os botões de alternância de saldo
     if (bnbButton && ethButton && usdButton) {
         bnbButton.addEventListener('click', () => handleButtonClick('bnb'));
         ethButton.addEventListener('click', () => handleButtonClick('eth'));
         usdButton.addEventListener('click', () => handleButtonClick('usd'));
     } else {
-        console.error("Os botões de alternância de saldo não foram encontrados.");
+        console.error("Balance toggle buttons not found.");
     }
 
-    // Eventos para abrir o painel de live balance
     if (liveBalanceLink) {
         liveBalanceLink.addEventListener('click', toggleLiveBalanceDisplay);
     } else {
-        console.error("O link 'openLiveBalance' não foi encontrado.");
+        console.error("Element 'openLiveBalance' not found.");
     }
 
     if (liveBalanceMobileLink) {
         liveBalanceMobileLink.addEventListener('click', toggleLiveBalanceDisplay);
     } else {
-        console.error("O link 'openLiveBalanceMobile' não foi encontrado.");
+        console.error("Element 'openLiveBalanceMobile' not found.");
     }
 
-    // Exibe o saldo inicial em BNB quando a página carrega
     displayWalletBalances(selectedType);
 });
