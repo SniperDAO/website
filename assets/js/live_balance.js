@@ -1,31 +1,34 @@
-// Connects to the Binance Smart Chain provider (fallback list)
+// BSC providers (fallback list)
 const bscProviders = [
-    "https://bsc-dataseed.binance.org/",
-    "https://rpc.ankr.com/bsc",
-    "https://bsc.publicnode.com",
-    "https://bsc-dataseed1.defibit.io/",
-    "https://bsc-dataseed1.ninicoin.io/"
+    "wss://bsc-rpc.publicnode.com",
+    "wss://bsc.drpc.org",
 ];
 
-async function createWeb3() {
+let _web3 = null;
+
+async function getWeb3() {
+    if (_web3) return _web3;
+
     for (const url of bscProviders) {
         try {
-            const provider = new Web3.providers.HttpProvider(url);
+            const provider = new Web3.providers.WebsocketProvider(url);
             const instance = new Web3(provider);
+
             await instance.eth.getBlockNumber();
-            return instance;
+            _web3 = instance;
+
+            return _web3;
         } catch {
             // try next provider
         }
     }
+
     throw new Error("All BSC RPC providers failed.");
 }
 
-const web3 = new Web3(new Web3.providers.HttpProvider(bscProviders[0]));
-
 // Chainlink Price Feed contract addresses (BNB/USD and ETH/USD on BSC)
-const bnbPriceFeedAddress = web3.utils.toChecksumAddress("0x0567F2323251f0AAB15c8DfB1967E4e8A7D42aeE");
-const ethPriceFeedAddress = web3.utils.toChecksumAddress("0x9ef1B8c0E4F7dc8bF5719Ea496883DC6401d5b2e");
+const bnbPriceFeedAddress = Web3.utils.toChecksumAddress("0x0567F2323251f0AAB15c8DfB1967E4e8A7D42aeE");
+const ethPriceFeedAddress = Web3.utils.toChecksumAddress("0x9ef1B8c0E4F7dc8bF5719Ea496883DC6401d5b2e");
 
 // Chainlink Price Feed ABI (simplified)
 const PRICE_FEED_ABI = [{
@@ -48,8 +51,10 @@ let selectedType = 'bnb';
 // Fetches BNB and ETH prices in USD via Chainlink
 async function getPricesInUSD() {
     try {
-        const bnbPriceFeed = new web3.eth.Contract(PRICE_FEED_ABI, bnbPriceFeedAddress);
-        const ethPriceFeed = new web3.eth.Contract(PRICE_FEED_ABI, ethPriceFeedAddress);
+        const w3 = await getWeb3();
+
+        const bnbPriceFeed = new w3.eth.Contract(PRICE_FEED_ABI, bnbPriceFeedAddress);
+        const ethPriceFeed = new w3.eth.Contract(PRICE_FEED_ABI, ethPriceFeedAddress);
 
         const [bnbRoundData, ethRoundData] = await Promise.all([
             bnbPriceFeed.methods.latestRoundData().call(),
@@ -89,20 +94,22 @@ const ETH_ABI = [{
 
 // Fetches BNB and ETH balances for all wallets
 async function getWalletBalances() {
+    const w3 = await getWeb3();
+    
     const balances = {};
-    const ethContract = new web3.eth.Contract(ETH_ABI, ethContractAddress);
+    const ethContract = new w3.eth.Contract(ETH_ABI, ethContractAddress);
 
     const balancePromises = Object.keys(walletAddresses).map(async (name) => {
         const address = walletAddresses[name];
 
         try {
             const [balanceWei, balanceEthWei] = await Promise.all([
-                web3.eth.getBalance(address),
+                w3.eth.getBalance(address),
                 ethContract.methods.balanceOf(address).call()
             ]);
 
-            const balanceBNB = web3.utils.fromWei(balanceWei, 'ether');
-            const balanceETH = web3.utils.fromWei(balanceEthWei, 'ether');
+            const balanceBNB = w3.utils.fromWei(balanceWei, 'ether');
+            const balanceETH = w3.utils.fromWei(balanceEthWei, 'ether');
 
             balances[name] = {
                 bnb: parseFloat(balanceBNB).toFixed(3),
@@ -124,12 +131,12 @@ async function displayWalletBalances(type = selectedType) {
     const prices = await getPricesInUSD();
 
     const orderedWalletNames = [
-        "sniperdao-deployer.bnb",
         "sniperdao-operators-vault.bnb",
+        "sniperdao-emergency-fund.bnb",
         "sniperdao-revenue-share.bnb",
-        "sniperdao-ecosystem.bnb",
         "sniperdao-liquidity.bnb",
-        "sniperdao-emergency-fund.bnb"
+        "sniperdao-ecosystem.bnb",
+        "sniperdao-deployer.bnb"
     ];
 
     let balanceMessage = "";
