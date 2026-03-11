@@ -9,11 +9,24 @@ ul {
     color: #fff;
     max-width: 100%;
     overflow: auto;
+}
 
-    -ms-overflow-style: none;
-    /* Para Internet Explorer e Edge */
-    scrollbar-width: none;
-    /* Para Firefox */
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #fff;
 }
 
 /* End of general settings */
