@@ -1,6 +1,27 @@
-// Connects to the Binance Smart Chain provider
-const bscProvider = "https://bsc-dataseed.binance.org/";
-const web3 = new Web3(new Web3.providers.HttpProvider(bscProvider));
+// Connects to the Binance Smart Chain provider (fallback list)
+const bscProviders = [
+    "https://bsc-dataseed.binance.org/",
+    "https://rpc.ankr.com/bsc",
+    "https://bsc.publicnode.com",
+    "https://bsc-dataseed1.defibit.io/",
+    "https://bsc-dataseed1.ninicoin.io/"
+];
+
+async function createWeb3() {
+    for (const url of bscProviders) {
+        try {
+            const provider = new Web3.providers.HttpProvider(url);
+            const instance = new Web3(provider);
+            await instance.eth.getBlockNumber();
+            return instance;
+        } catch {
+            // try next provider
+        }
+    }
+    throw new Error("All BSC RPC providers failed.");
+}
+
+const web3 = new Web3(new Web3.providers.HttpProvider(bscProviders[0]));
 
 // Chainlink Price Feed contract addresses (BNB/USD and ETH/USD on BSC)
 const bnbPriceFeedAddress = web3.utils.toChecksumAddress("0x0567F2323251f0AAB15c8DfB1967E4e8A7D42aeE");
@@ -219,6 +240,4 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error("Element 'openLiveBalanceMobile' not found.");
     }
-
-    displayWalletBalances(selectedType);
 });
