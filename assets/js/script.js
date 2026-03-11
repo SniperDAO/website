@@ -328,5 +328,5 @@ function scrollToSectionWithOffset(element, offset) {
 }
 
 function openTermsOfUse() {
-    window.open('./SniperDAO_files/termsofuse.html', 'Terms Of Use', 'width=600,height=400,scrollbars=yes');
+    window.open('./pages/termsofuse.html', 'Terms Of Use', 'width=600,height=400,scrollbars=yes');
 }
