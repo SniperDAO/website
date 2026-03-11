@@ -1,0 +1,174 @@
+SniperDAO Whitepaper - V_1.0
+
+-----------------------
+A equipe da SniperDAO não incentiva a compra e nem garante retornos lucrativos. O mercado de criptomoedas tem um grande risco em relação a volatilidade dos preços e a insegurança das tecnologias interligadas as plataformas. A possibilidade de perda total do investimento é uma realidade que todo investidor deve estar ciente e deve ser de inteira responsabilidade de cada indíviduo. A equipe sugere uma pesquisa aprofundada sobre toda essa área de criptomoedas.
+
+Lembre-se: nunca arrisque mais do que você está disposto a perder. Seja prudente e informado.
+
+Não iremos tomar atitudes que levem a comportamento de "fomo", seremos transparentes e sinceros com as atividades desempenhadas, sem jamais trazer falsas esperanças, promessas de lucros ou qualquer coisa do gênero.
+
+-----------------------
+1 - Introdução
+
+SniperDAO é um projeto que se propõe a beneficiar a comunidade por meio dos lucros obtidos a partir de diversas operações no mercado de criptomoedas.
+
+A essência do nosso projeto é a distribuição da receita entre os investidores do projeto e o projeto tem como principal foco na operação de "snipe" a qual é utilizado uma ferramenta(bot) com o objetivo de ser uma das primeiras compras no lançamento de um token alvo.
+
+-----------------------
+2 - Estrutura da equipe
+
+O cerne da SniperDAO é a sua banca composta por operadores que definem um alvo e executam toda a operação usando ferramentas desenvolvidas pela equipe de programação do projeto, o objetivo da equipe é trazer lucro para o projeto.
+
+Outro núcleo importante é o de desenvolvimento do ecossistema a qual têm o principal objetivo de pesquisar, criar e aprimorar ferramentas que serão úteis para o projeto. Este núcleo contará com financiamento para pesquisa, com recursos oriundos de parte dos lucros das operações do treasury.
+
+A equipe possui regras internas que são aplicadas principalmente aos operadores encarregados de executar as operações. Essas regras desempenham um papel fundamental na prevenção de prejuízos financeiros e na minimização de possíveis confusões, garantindo assim a eficiência e a segurança das operações.
+
+-----------------------
+3 - Governança
+
+A governança da SniperDAO é orientada pela comunidade. Reconhecemos a importância de cada membro, por isso a equipe do projeto sê propõe a colocar para voto importantes decisões em relações a direções do projeto. A comunidade é encorajada a votar e contribuir com importantes sugestões, tudo isso sendo executado com transparência.
+
+-----------------------
+4 - Tesouraria
+
+Por questões de organização e segurança, os fundos do projeto serão distribuídos em várias carteiras e cada uma representando uma finalidade específica. Tudo será apresentado com transparência.
+
+Os fundos relacionados às operações serão distribuídos entre as carteiras dos operadores, sendo que cada operador terá sua própria carteira exclusiva. O projeto também incluirá uma carteira destinada à reserva de emergência, outra à distribuição de lucros, uma para recompra e adição de liquidez, e ainda outra relacionada ao desenvolvimento do projeto.
+
+Em algumas situações, poderemos realocar parte dos fundos de uma finalidade para outra. Por exemplo, se a reserva de emergência estiver com um saldo elevado, poderemos transferir parte desse saldo para a carteira de distribuição de lucros.
+
+-----------------------
+5 - Operações
+
+Conforme mencionado na introdução, o projeto tem como foco principal a operação de "snipe". À medida que o tesouro do projeto crescer, planejamos diversificar nossas atividades, realizando também operações de trade, "buy and hold", arbitragem, contratos futuros e outras operações que possam envolver riscos mais elevados. No entanto, essa diversificação será realizada em menor escala e com a supervisão dos gestores do projeto.
+
+-----------------------
+6 - Participação nos lucros
+
+O principal modelo de distribuição de rendimento adotado pela SniperDAO funcionará com base no princípio de "revenue share".
+
+Para sê beneficiar deste modelo, o investidor deve cadastrar o endereço da sua carteira em nosso sistema. A distribuição dos rendimentos é calculada a parti de uma fórmula que leva em consideração vários critérios e que têm como resultado uma pontuação que é igual à porcentagem da participação dos lucros.
+Este mecanismo têm como objetivo estimular uma distribuição descentralizada dos rendimentos e valorizar a dedicação de investidor.
+
+Este mecanismo têm como objetivo estimular uma distribuição descentralizada dos rendimentos e valorizar a dedicação de investidor, os critérios são renovados a distribuição, mas os principais são:
+- Tempo de "holding".
+- Quantidade de tokens na carteira valendo pelo menos 0.2 BNB no momento do snapshot.
+- Participação ativa na comunidade.
+- Uma carteira por pessoa.
+
+Sugerimos que os membros utilizem uma carteira especificamente para o recebimento de dividendos e outra para realizações de negociações.
+
+-----------------------
+7 - Distribuição dos lucros
+
+Os lucros gerados pelas operações do projeto vão ser distribuídos da seguinte forma:
+
+A - Revenue share:
+- 25% dos lucros são distribuídos para fundo de particiação de lucros.
+
+B - Liquidez do Projeto:
+- 25% dos lucros são reinvestidos na liquidez do projeto através de recompra e adição de liquidez.
+
+C - Treasury(Banca operadores):
+- 25% dos lucros são distribuídos na banca dos operadores, aumentando a capacidade e o potencial de lucro.
+
+D - Ecossistema do Projeto:
+- 25% dos lucros são distribuídos para cobrir os custos operacionais, financiar pesquisas, o desenvolvimento e a expansão contínua do projeto.
+
+-----------------------
+8 - Transparência e sinceridade:
+
+A sniperdao valoriza a autenticidade e a clareza em suas ações e comunicações.
+
+Nosso projeto não se baseia em "hype" e "fomo", nossos resultados serão construídos ao longo das nossas operações, e nossa comunidade irá beneficiar-se do ecossistema que estamos desenvolvendo.
+
+Desde já, firmamos nosso compromisso com a sinceridade e transparência, sendo pilares fundamentais do nosso projeto. Sempre incentivaremos o trading consciente e alertaremos nossos membros da comunidade sobre os riscos das operações com criptomoedas.
+
+-----------------------
+9 - Utilidades
+
+Entendemos a importância de oferecer ferramentas que agreguem valor à nossa comunidade. Temos planos de desenvolver uma série de ferramentas úteis que beneficiarão a comunidade da SniperDAO e que também poderão ser utilizadas para campanhas de marketing.
+
+-----------------------
+10 - Tokenomics:
+
+O token terá um fornecimento total de 10.000.000 (dez milhões) de unidades. Inicialmente, serão adicionados 9.500.000 tokens à liquidez, enquanto 500.000 tokens serão distribuídos à equipe.
+
+O token terá uma taxa de 6% que será aplicada a cada swap. Essa taxa representa 6% destinado ao que for necessário no projeto.
+
+Durante o período inicial, iremos direcionar toda a taxa para a banca dos operadores para formar uma reserva adequada para início das operações. Assim que um valor adequado for atingido, vamos direcionar para outras partes do projeto.
+
+-----------------------
+11 - Contrato
+
+O contrato do token foi feito para impossibilitar que o owner não consiga manipular com intenções malignas. Também iremos contratar serviços de auditorias para confirmarem a segurança do contrato ou encontrar possíveis problemas.
+
+-----------------------
+SniperDAO ROADMAP
+
+[Phase 1: Foundations and pre-launch]
+
+1.1 - Initial research and development:
+- Concept creation, definition of fundamentals, objectives, and other core foundations of SniperDAO.
+
+1.2 - Core team formation:
+- Gathering partners for build the core team of the project.
+
+1.3 - Tools research and development:
+- Platform/System for profit-sharing participation.
+- Development, improvement, and integration of essential tools for the project.
+- Development of smart contracts involved in project.
+
+1.4 - Marketing and identity development:
+- Structuring the visual identity and media materials.
+- Beginning promotional activities for the project.
+- Preparation for the launch.
+- Whitepaper v1
+
+1.5 - Launch:
+- Deployment of contracts on the BSC mainnet.
+- Liquidity pool added at PancakeSwap.
+
+1.6 - Beginning of main activities:
+- Initiation of sniping activities and the beginning of the formation of the SniperDAO treasury and profit-sharing.
+
+[Phase 2: Post-launch and initial activities]
+
+2.1 - New developments and enhancements:
+- Development of more new tools and improvements to existing ones.
+- Begining of the development from the voting system for the DAO.
+- GitBook of the project and bots.
+- Website V1
+
+2.2 - Expansion of marketing and audits:
+- Hiring specialized services to increase project visibility.
+- Contracting a company for audits of contracts and algorithms.
+
+2.3 - Telegram bot public testing
+- Providing for the holders the access to BETA testing to the SnipeDAO bot in telegram.
+
+2.4 - Transparency:
+- Start of the development of transparency tools and monitoring of SniperDAO operations.
+- Report notes about the funds raised and activities carried out.
+- Show the amount of profit distributed.
+
+[Phase 3: Continuous development, updates, and DAO voting]
+
+3.1 - DAO voting system:
+- First participatory poll to determine the next steps of project.
+- Definition of the reward distribution schedule.
+- Survey of the next utilities to be delivered.
+
+3.2 - Listings:
+- Beginning of listing processes on trackers (e.g., CMC, CG).
+- Beginning of listing processes in many CEX.
+
+3.3 - Disclosure of results and future planning:
+- Report all on operations, results, and other items.
+- Promotional event with giveaways, challenges, and other activities proposed to the holders, with exclusive benefits.
+- Meetings with the DAO and collective decisions on the next steps.
+- Release of the next phases of the RoadMap.
+
+Phase 4 - UNDER CONSTRUCTION.
+- Website V2
+- Whitepaper V2
